@@ -14,7 +14,6 @@ const Results = () => {
   const param = searchParams.get('search')
   const { products } = useSelector((state) => state.products)
 
-  console.log(products)
 
   const getProducts = async () => {
     const { items } = await getProductsByName(param)
@@ -22,7 +21,7 @@ const Results = () => {
   }
 
   useEffect(() => {
-    if (products.length == 0) {
+    if (products.length == 0 && param) {
       getProducts()
     }
   })

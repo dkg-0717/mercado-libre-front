@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import NotFound from './NotFound';
 import { useParams } from 'react-router-dom';
-import currency from '../utils/currency';
 import { getProductById } from '../services/products';
+import currency from '../utils/currency';
 import '../assets/css/itemDetails.css'
 
 const ItemDetails = () => {
@@ -9,16 +10,15 @@ const ItemDetails = () => {
   let { id } = useParams();
   const [product, setProduct] = useState(null)
 
-
   useEffect(() => {
     async function fetchData() {
       const product = await getProductById(id);
-      setProduct(product)
+      if (product.status !== 404) setProduct(product)
     }
     fetchData();
   }, [])
 
-  if (!product) return null
+  if (!product) return <NotFound />
 
   const productCondition = (condition) => {
     if (condition == 'new') return 'Nuevo'

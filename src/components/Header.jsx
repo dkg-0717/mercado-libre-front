@@ -4,7 +4,7 @@ import { getProductsByName } from '../services/products'
 import { setProducts } from '../store/slices/products/productSlice'
 import Logo from '../assets/images/Logo_ML.png'
 import '../assets/css/header.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
 
@@ -27,7 +27,9 @@ const Header = () => {
     <header className='header'>
       <div className='header-container'>
         <div className='logo'>
-          <img src={Logo} />
+          <Link to="/">
+            <img src={Logo} />
+          </Link>
         </div>
         <div className="searcher">
           <input className='ml-input' type="text" placeholder='Nunca dejes de buscar'
