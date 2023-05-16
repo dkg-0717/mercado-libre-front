@@ -18,14 +18,12 @@ const ItemDetails = () => {
     fetchData();
   }, [])
 
-  if (!product) return <NotFound />
-
   const productCondition = (condition) => {
     if (condition == 'new') return 'Nuevo'
   }
 
   return (
-    product && <div className='details-container'>
+    product ? <div className='details-container'>
       <div className='breadcrumb'></div>
       <div className="details">
         <div className="image-container">
@@ -40,7 +38,7 @@ const ItemDetails = () => {
           <button className='buy-button'>Comprar</button>
         </div>
       </div>
-    </div>
+    </div> : <NotFound />
   )
 }
 
