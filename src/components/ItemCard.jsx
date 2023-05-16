@@ -17,7 +17,7 @@ const ItemCard = ({ product }) => {
   return (
     <div className='itemcard-container' onClick={() => goToPage(product.id)}>
       <div className="product-image">
-        <img src={product?.picture} alt="" />
+        <img className='prod-image' src={product?.picture} alt="product image" />
       </div>
       <div className="product-description">
         <div className="product-description-info">

@@ -53,3 +53,17 @@
   margin-block-start: 20px;
   background-color: #3483fa;
 }
+
+@media (max-width:390px) {
+  .details-container {
+    padding: 10px;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .image-product {
+    max-height: 250px;
+  }
+}

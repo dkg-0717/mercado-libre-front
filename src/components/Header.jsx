@@ -28,7 +28,7 @@ const Header = () => {
       <div className='header-container'>
         <div className='logo'>
           <Link to="/">
-            <img src={Logo} />
+            <img src={Logo} alt='Logo meli' />
           </Link>
         </div>
         <div className="searcher">

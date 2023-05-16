@@ -16,3 +16,34 @@
   padding: 20px 15px;
   background-color: #fff;
 }
+
+@media (max-width:390px) {
+  .results-container {
+    padding: 10px;
+  }
+
+  .itemcard-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .product-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .prod-image {
+    height: 200px;
+    max-width: 100%;
+  }
+
+  .itemcard-container .product-description {
+    align-items: center;
+    margin-block-start: 0;
+  }
+
+  .txt-product-state {
+    padding: 0;
+  }
+}
