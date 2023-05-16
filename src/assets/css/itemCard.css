@@ -1,15 +1,26 @@
 .itemcard-container {
   width: 100%;
   height: auto;
+  gap: 20px;
   display: grid;
+  cursor: pointer;
   padding: 0 0 25px 0;
-  border-bottom: 1px solid #f1f1f1;
   grid-template-columns: 320px 1fr 320px;
+}
+
+.itemcard-container:not(:last-child) {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.product-price {
+  margin: 0;
   font-size: 1.5rem;
 }
 
-.itemcard-container p {
-  margin: 0;
+.product-title {
+  margin-block-start: 10px;
+  font-size: 1.2rem;
+
 }
 
 .product-description {
@@ -22,7 +33,7 @@
   gap: 10px;
   display: flex;
   align-items: center;
-  margin-block-start: 45px;
+  margin-block-start: 20px;
 }
 
 .product-state {

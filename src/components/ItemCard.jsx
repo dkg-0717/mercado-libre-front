@@ -23,9 +23,9 @@ const ItemCard = ({ product }) => {
       </div>
       <div className="product-description">
         <div className="product-description-info">
-          <p> {currency(product.price.amount)}</p> <img src={FreeShipping} />
+          <p className='product-price'> {currency(product.price.amount)}</p> <img src={FreeShipping} />
         </div>
-        <p>{product.title}</p>
+        <p className='product-title'>{product.title}</p>
       </div>
       <div className="product-state">
         <p className='txt-product-state'>{product.seller_address}</p>
