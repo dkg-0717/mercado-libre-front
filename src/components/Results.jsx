@@ -14,6 +14,8 @@ const Results = () => {
   const param = searchParams.get('search')
   const { products } = useSelector((state) => state.products)
 
+  console.log(products)
+
   const getProducts = async () => {
     const { items } = await getProductsByName(param)
     dispatch(setProducts(items))

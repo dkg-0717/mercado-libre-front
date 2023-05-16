@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, createSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FreeShipping from '../assets/images/ic_shipping.png'
 import currency from '../utils/currency';
 import '../assets/css/itemCard.css'
@@ -10,9 +10,7 @@ const ItemCard = ({ product }) => {
 
   if (!product) return null
 
-
   const goToPage = (id) => {
-    console.log(id)
     navigate(`/items/${id}`);
   }
 

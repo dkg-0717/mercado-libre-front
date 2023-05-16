@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getProductsByName } from '../services/products'
 import { setProducts } from '../store/slices/products/productSlice'
@@ -8,17 +8,17 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
 
+  const [inputValue, setValue] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const searchProduct = async (e) => {
-    const value = e.target.value
-    if (e.key === 'Enter' && value !== '') {
-      const { items } = await getProductsByName(value)
+    if (inputValue !== '' && e.key === 'Enter' || e == 'button') {
+      const { items } = await getProductsByName(inputValue)
       dispatch(setProducts(items))
       navigate({
         pathname: '/items',
-        search: `?search=${value}`
+        search: `?search=${inputValue}`
       });
     }
   }
@@ -31,8 +31,8 @@ const Header = () => {
         </div>
         <div className="searcher">
           <input className='ml-input' type="text" placeholder='Nunca dejes de buscar'
-            onKeyDown={searchProduct} />
-          <button className='searcher-button'>
+            onKeyDown={searchProduct} value={inputValue} onChange={e => setValue(e.target.value)} />
+          <button className='searcher-button' onClick={() => searchProduct('button')}>
           </button>
         </div>
       </div>
