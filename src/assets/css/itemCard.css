@@ -1,0 +1,36 @@
+.itemcard-container {
+  width: 100%;
+  height: auto;
+  display: grid;
+  padding: 0 0 25px 0;
+  border-bottom: 1px solid #f1f1f1;
+  grid-template-columns: 320px 1fr 320px;
+  font-size: 1.5rem;
+}
+
+.itemcard-container p {
+  margin: 0;
+}
+
+.product-description {
+  gap: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-description-info {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  margin-block-start: 45px;
+}
+
+.product-state {
+  display: flex;
+  justify-content: center;
+}
+
+.txt-product-state {
+  color: gray;
+  padding-top: 45px;
+}
