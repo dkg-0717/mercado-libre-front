@@ -8,12 +8,14 @@ import '../assets/css/itemDetails.css'
 const ItemDetails = () => {
 
   let { id } = useParams();
+  const [wrongId, setWrongId] = useState(false)
   const [product, setProduct] = useState(null)
 
   useEffect(() => {
     async function fetchData() {
       const product = await getProductById(id);
       if (product.status !== 404) setProduct(product)
+      else setWrongId(true)
     }
     fetchData();
   }, [])
@@ -23,7 +25,7 @@ const ItemDetails = () => {
   }
 
   return (
-    product ? <div className='details-container'>
+    (product && !wrongId) ? <div className='details-container'>
       <div className='breadcrumb'></div>
       <div className="details">
         <div className="image-container">
@@ -38,7 +40,8 @@ const ItemDetails = () => {
           <button className='buy-button'>Comprar</button>
         </div>
       </div>
-    </div> : <NotFound />
+    </div>
+      : wrongId && <NotFound />
   )
 }
 
