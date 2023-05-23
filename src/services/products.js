@@ -10,7 +10,11 @@ const getProductsByName = async (productName) => {
   }
   try {
     const { data } = await axios.get(`${localUrl}/api/items`, options)
-    return data.data
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(data.data)
+      }, 3000)
+    })
   } catch (err) {
     return err
   }

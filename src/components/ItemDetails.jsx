@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import NotFound from './NotFound';
 import { useParams } from 'react-router-dom';
 import { getProductById } from '../services/products';

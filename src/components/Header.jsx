@@ -15,13 +15,15 @@ const Header = () => {
   const searchProduct = async (e) => {
     if (inputValue !== '' && e.key === 'Enter' || e == 'button') {
       dispatch(setIsLoading(true))
-      const { items } = await getProductsByName(inputValue)
-      dispatch(setProducts(items))
-      // dispatch(setIsLoading(false))
       navigate({
         pathname: '/items',
         search: `?search=${inputValue}`
       });
+      const { items } = await getProductsByName(inputValue)
+      if (items) {
+        dispatch(setProducts(items))
+      }
+      dispatch(setIsLoading(false))
     }
   }
 
