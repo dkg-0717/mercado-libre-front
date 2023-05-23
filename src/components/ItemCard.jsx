@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from "react-router-dom";
 import FreeShipping from '../assets/images/ic_shipping.png'
 import currency from '../utils/currency';
@@ -17,7 +16,7 @@ const ItemCard = ({ product }) => {
   return (
     <div className='itemcard-container' onClick={() => goToPage(product.id)}>
       <div className="product-image">
-        <img className='prod-image' src={product?.picture} alt="product image" />
+        <img className='prod-image' src={product?.picture} alt="imágen del producto" />
       </div>
       <div className="product-description">
         <div className="product-description-info">

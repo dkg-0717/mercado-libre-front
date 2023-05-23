@@ -29,7 +29,7 @@ const ItemDetails = () => {
       <div className='breadcrumb'></div>
       <div className="details">
         <div className="image-container">
-          <img className='image-product' src={product.picture} alt="" />
+          <img className='image-product' src={product.picture} alt="imágen del producto" />
           <h2 className='product-title'>Descripción del producto</h2>
           <p className='product-description'>{product.description}</p>
         </div>

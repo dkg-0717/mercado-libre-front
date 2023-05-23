@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom';
 import { getProductsByName } from '../services/products'
 import { setProducts } from '../store/slices/products/productSlice';
 import ItemCard from './ItemCard'
+import Loading from './Loading'
 import '../assets/css/results.css'
 
 const Results = () => {
@@ -12,7 +13,7 @@ const Results = () => {
   const search = useLocation().search
   const searchParams = new URLSearchParams(search)
   const param = searchParams.get('search')
-  const { products } = useSelector((state) => state.products)
+  const { products, isLoading } = useSelector((state) => state.products)
 
 
   const getProducts = async () => {
@@ -29,7 +30,7 @@ const Results = () => {
   return (
     <div className='results-container'>
       <div className='breadcrumb'></div>
-      {products.length > 0 &&
+      {(products.length > 0 && !isLoading) ?
         <div className='results'>
           {products.map((product, idx) => {
             {
@@ -38,7 +39,7 @@ const Results = () => {
               )
             }
           })}
-        </div>
+        </div> : (isLoading) && <Loading />
       }
     </div>
   )
