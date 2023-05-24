@@ -12,7 +12,8 @@ const getProductsByName = async (productName) => {
     const { data } = await axios.get(`${localUrl}/api/items`, options)
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(data.data)
+        const { data: products } = data
+        resolve(products)
       }, 3000)
     })
   } catch (err) {
@@ -23,7 +24,8 @@ const getProductsByName = async (productName) => {
 const getProductById = async (productId) => {
   try {
     const { data } = await axios.get(`${localUrl}/api/items/${productId}`)
-    return data.product
+    const { product } = data
+    return product
   } catch (err) {
     return err
   }

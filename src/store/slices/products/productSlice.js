@@ -9,11 +9,11 @@ export const productSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    setProducts: (state, action) => {
-      state.products = action.payload
+    setProducts: (state, { payload }) => {
+      state.products = payload
     },
-    setIsLoading(state, action) {
-      state.isLoading = action.payload
+    setIsLoading(state, { payload }) {
+      state.isLoading = payload
     }
   },
 })
