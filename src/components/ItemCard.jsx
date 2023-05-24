@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types'
 import FreeShipping from '../assets/images/ic_shipping.png'
 import currency from '../utils/currency';
 import '../assets/css/itemCard.css'
@@ -29,6 +30,10 @@ const ItemCard = ({ product }) => {
       </div>
     </div>
   )
+}
+
+ItemCard.propTypes = {
+  product: PropTypes.object
 }
 
 export default ItemCard
