@@ -17,6 +17,15 @@
   background-color: #fff;
 }
 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.categories-txt {
+  color: gray;
+}
+
 @media (max-width:390px) {
   .results-container {
     padding: 10px;

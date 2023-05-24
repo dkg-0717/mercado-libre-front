@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const localUrl = 'https://mercadolibreback-dkg0717.b4a.run'
+// const localUrl = 'https://mercadolibreback-dkg0717.b4a.run'
+
+const localUrl = 'http://localhost:3000'
 
 const getProductsByName = async (productName) => {
   const options = {

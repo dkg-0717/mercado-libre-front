@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getProductsByName } from '../services/products'
-import { setProducts, setIsLoading } from '../store/slices/products/productSlice'
+import { setProducts, setIsLoading, setCategories } from '../store/slices/products/productSlice'
 import Logo from '../assets/images/Logo_ML.png'
 import '../assets/css/header.css'
 import { Link, useNavigate } from "react-router-dom";
@@ -19,9 +19,10 @@ const Header = () => {
         pathname: '/items',
         search: `?search=${inputValue}`
       });
-      const { items } = await getProductsByName(inputValue)
+      const { items, categories } = await getProductsByName(inputValue)
       if (items) {
         dispatch(setProducts(items))
+        dispatch(setCategories(categories))
       }
       dispatch(setIsLoading(false))
     }

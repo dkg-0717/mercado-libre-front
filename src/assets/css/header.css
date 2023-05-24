@@ -38,7 +38,7 @@
   padding: 10px 60px 10px 15px;
 }
 
-@media (max-width:390px) {
+@media (max-width:500px) {
   .header {
     padding: 10px;
   }
