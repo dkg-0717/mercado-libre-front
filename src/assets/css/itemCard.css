@@ -45,3 +45,23 @@
   color: gray;
   padding-top: 45px;
 }
+
+@media (max-width:700px) {
+  .product-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .itemcard-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .product-description {
+    align-items: center;
+  }
+
+  .txt-product-state {
+    padding: 0;
+  }
+}
