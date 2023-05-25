@@ -30,9 +30,6 @@ const Results = () => {
 
   return (
     <div className='results-container'>
-      <div className='breadcrumb'>
-        <p className='categories-txt'>{category}</p>
-      </div>
       {(products.length > 0 && !isLoading) ?
         <div className='results'>
           {products.map((product, idx) => {

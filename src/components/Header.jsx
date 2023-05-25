@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getProductsByName } from '../services/products'
 import { setProducts, setIsLoading, setCategory } from '../store/slices/products/productSlice'
 import Logo from '../assets/images/Logo_ML.png'
@@ -11,6 +11,8 @@ const Header = () => {
   const [inputValue, setValue] = useState('')
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
+  const { category } = useSelector((state) => state.products)
 
   const searchProduct = async (e) => {
     if (inputValue !== '' && e.key === 'Enter' || e == 'button') {
@@ -29,21 +31,26 @@ const Header = () => {
   }
 
   return (
-    <header className='header'>
-      <div className='header-container'>
-        <div className='logo'>
-          <Link to="/">
-            <img src={Logo} alt='Logo meli' />
-          </Link>
+    <div className='header-bread'>
+      <header className='header'>
+        <div className='header-container'>
+          <div className='logo'>
+            <Link to="/">
+              <img src={Logo} alt='Logo meli' />
+            </Link>
+          </div>
+          <div className="searcher">
+            <input className='ml-input' type="text" placeholder='Nunca dejes de buscar'
+              onKeyDown={searchProduct} value={inputValue} onChange={e => setValue(e.target.value)} />
+            <button className='searcher-button' onClick={() => searchProduct('button')}>
+            </button>
+          </div>
         </div>
-        <div className="searcher">
-          <input className='ml-input' type="text" placeholder='Nunca dejes de buscar'
-            onKeyDown={searchProduct} value={inputValue} onChange={e => setValue(e.target.value)} />
-          <button className='searcher-button' onClick={() => searchProduct('button')}>
-          </button>
-        </div>
+      </header>
+      <div className='breadcrumb'>
+        <p className='categories-txt'>{category}</p>
       </div>
-    </header>
+    </div>
   )
 }
 
