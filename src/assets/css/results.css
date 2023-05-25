@@ -1,5 +1,6 @@
 .results-container {
   width: 100%;
+  padding: 10px;
   margin-inline: auto;
   max-inline-size: 1200px;
   display: grid;
@@ -27,10 +28,6 @@
 }
 
 @media (max-width:390px) {
-  .results-container {
-    padding: 10px;
-  }
-
   .itemcard-container {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;

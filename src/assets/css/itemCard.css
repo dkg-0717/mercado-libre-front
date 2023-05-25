@@ -5,7 +5,7 @@
   display: grid;
   cursor: pointer;
   padding: 0 0 25px 0;
-  grid-template-columns: 320px 1fr 320px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .itemcard-container:not(:last-child) {

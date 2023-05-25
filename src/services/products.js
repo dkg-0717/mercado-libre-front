@@ -7,7 +7,8 @@ const localUrl = 'http://localhost:3000'
 const getProductsByName = async (productName) => {
   const options = {
     params: {
-      q: productName
+      q: productName,
+      limit: 4
     }
   }
   try {

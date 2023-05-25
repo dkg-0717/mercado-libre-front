@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  padding: 10px 0;
+  padding: 10px;
   background-color: #fff159;
 }
 
@@ -38,8 +38,4 @@
   padding: 10px 60px 10px 15px;
 }
 
-@media (max-width:500px) {
-  .header {
-    padding: 10px;
-  }
-}
+@media (max-width:500px) {}

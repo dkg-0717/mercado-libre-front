@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation } from 'react-router-dom';
 import { getProductsByName } from '../services/products'
-import { setProducts, setCategories } from '../store/slices/products/productSlice';
+import { setProducts, setCategory } from '../store/slices/products/productSlice';
 import ItemCard from './ItemCard'
 import Loading from './Loading'
 import '../assets/css/results.css'
@@ -13,14 +13,13 @@ const Results = () => {
   const search = useLocation().search
   const searchParams = new URLSearchParams(search)
   const param = searchParams.get('search')
-  const { products, isLoading, categories } = useSelector((state) => state.products)
+  const { products, isLoading, category } = useSelector((state) => state.products)
 
 
   const getProducts = async () => {
-    const { items, categories } = await getProductsByName(param)
-    console.log(categories)
+    const { items, category } = await getProductsByName(param)
     dispatch(setProducts(items))
-    dispatch(setCategories(categories))
+    dispatch(setCategory(category))
   }
 
   useEffect(() => {
@@ -32,7 +31,7 @@ const Results = () => {
   return (
     <div className='results-container'>
       <div className='breadcrumb'>
-        <p className='categories-txt'>{categories[0]}</p>
+        <p className='categories-txt'>{category}</p>
       </div>
       {(products.length > 0 && !isLoading) ?
         <div className='results'>
